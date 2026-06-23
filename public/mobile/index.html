@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>SENATI 60 Años - Mural Interactivo</title>
+    <link rel="stylesheet" href="/mobile/styles.css">
+  </head>
+  <body>
+    <main class="mobile-shell">
+      <section class="panel" aria-live="polite">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>SENATI | 60 AÑOS</span>
+        </div>
+
+        <div id="captureStep" class="step is-active">
+          <h1>¡Celebremos juntos los 60 años de SENATI!</h1>
+
+          <p>
+          Tómate una foto, compártela en el mural interactivo
+          y forma parte de esta historia que inspira a las
+          nuevas generaciones de profesionales.
+          </p>
+
+          <label class="primary-action" for="photoInput">
+            Abrir camara o galeria
+          </label>
+          <input id="photoInput" type="file" accept="image/*" capture="environment">
+        </div>
+
+        <div id="cropStep" class="step">
+          <h1>Recorta tu foto</h1>
+          <p>Ajusta la imagen al formato cuadrado antes de enviarla.</p>
+
+          <div class="cropper">
+            <canvas id="cropCanvas" width="900" height="900"></canvas>
+          </div>
+
+          <div class="controls">
+            <label>
+              Zoom
+              <input id="zoomRange" type="range" min="1" max="3" step="0.01" value="1">
+            </label>
+          </div>
+
+          <div class="actions">
+            <button id="downloadButton" class="secondary-action" type="button"> Descargar foto SENATI</button>
+            <button id="backButton" class="secondary-action" type="button">Cambiar</button>
+            <button id="sendButton" class="primary-action" type="button">Enviar al mural</button>
+          </div>
+        </div>
+
+        <div id="successStep" class="step success">
+          <div class="success-icon">✓</div>
+          <h1>¡Ya eres parte de los 60 años de SENATI!</h1>
+          <p>
+          Tu fotografía ahora forma parte del mural
+          conmemorativo que celebra seis décadas
+          transformando vidas a través de la educación técnica.
+          </p>
+          <button id="newPhotoButton" class="secondary-action" type="button">Agregar otra foto</button>
+        </div>
+
+        <p id="statusMessage" class="status" role="status"></p>
+      </section>
+    </main>
+
+    <script src="/mobile/app.js"></script>
+  </body>
+</html>

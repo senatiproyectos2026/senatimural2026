@@ -1,0 +1,30 @@
+{
+  "name": "mural-interactivo-museo",
+  "version": "1.0.0",
+  "description": "Instalacion interactiva para museo con mural en tiempo real y captura movil via QR.",
+  "main": "src/server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "nodemon src/server.js"
+  },
+  "keywords": [
+    "museo",
+    "mural",
+    "socket.io",
+    "express",
+    "instalacion-interactiva"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "helmet": "^7.1.0",
+    "multer": "^2.0.2",
+    "socket.io": "^4.7.5"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}

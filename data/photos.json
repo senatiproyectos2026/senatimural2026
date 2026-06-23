@@ -1,0 +1,65 @@
+[
+  {
+    "id": "8b7cae51-0fdc-4b46-a449-f50b48b537c8",
+    "filename": "1782159518054-7ee28d54-d832-4437-9d9f-ba48431c1025.jpg",
+    "url": "/uploads/1782159518054-7ee28d54-d832-4437-9d9f-ba48431c1025.jpg",
+    "quote": "La memoria colectiva tambien se construye en imagenes.",
+    "createdAt": "2026-06-22T20:18:38.063Z"
+  },
+  {
+    "id": "d4dc4fe3-6f6f-4683-9b46-3f29d19f322d",
+    "filename": "1782143957833-ffbeef3e-36bb-45e2-b873-e54410d033fe.jpg",
+    "url": "/uploads/1782143957833-ffbeef3e-36bb-45e2-b873-e54410d033fe.jpg",
+    "quote": "El arte lava del alma el polvo de la vida cotidiana.",
+    "createdAt": "2026-06-22T15:59:17.834Z"
+  },
+  {
+    "id": "ce2114a8-7466-4028-b394-8559792c6d38",
+    "filename": "1782143682207-5dd3ccf7-0c1e-4e57-9015-5c1b8afb5261.jpg",
+    "url": "/uploads/1782143682207-5dd3ccf7-0c1e-4e57-9015-5c1b8afb5261.jpg",
+    "quote": "El arte lava del alma el polvo de la vida cotidiana.",
+    "createdAt": "2026-06-22T15:54:42.209Z"
+  },
+  {
+    "id": "9c6304d6-9c53-42c8-bf3f-4e717795bc9e",
+    "filename": "1782141388804-99b937eb-2107-421e-9979-5ea3c5ec632e.jpg",
+    "url": "/uploads/1782141388804-99b937eb-2107-421e-9979-5ea3c5ec632e.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-06-22T15:16:28.811Z"
+  },
+  {
+    "id": "462a440d-d2a4-4b13-9a58-3874dce3b3c3",
+    "filename": "1782139155186-92717f44-3bef-4120-9d6a-a1ff57f9dbff.jpg",
+    "url": "/uploads/1782139155186-92717f44-3bef-4120-9d6a-a1ff57f9dbff.jpg",
+    "quote": "Crear es resistir al olvido.",
+    "createdAt": "2026-06-22T14:39:15.188Z"
+  },
+  {
+    "id": "01bddc33-e0af-4240-82dd-984aea997515",
+    "filename": "1781964874292-55d37deb-936b-476d-a348-76be8151a95b.jpg",
+    "url": "/uploads/1781964874292-55d37deb-936b-476d-a348-76be8151a95b.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-06-20T14:14:34.294Z"
+  },
+  {
+    "id": "8a6ce08f-f49a-4954-a132-c5a8fb0b9159",
+    "filename": "1781964862935-610f419c-3038-437e-95ca-24d8767395da.jpg",
+    "url": "/uploads/1781964862935-610f419c-3038-437e-95ca-24d8767395da.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-06-20T14:14:22.938Z"
+  },
+  {
+    "id": "94f0b3e9-9b9d-426c-a3e0-ae3e6f278726",
+    "filename": "1781799896396-2b0c0d09-2fcb-4bea-9b08-0709e68649cf.jpg",
+    "url": "/uploads/1781799896396-2b0c0d09-2fcb-4bea-9b08-0709e68649cf.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-06-18T16:24:56.397Z"
+  },
+  {
+    "id": "18aa71c9-1e15-4e04-8e2a-279855c78c4a",
+    "filename": "1781798509854-f57c0716-b425-4c5d-a720-a8aece41f7d1.png",
+    "url": "/uploads/1781798509854-f57c0716-b425-4c5d-a720-a8aece41f7d1.png",
+    "quote": "hola",
+    "createdAt": "2026-06-18T16:01:49.856Z"
+  }
+]

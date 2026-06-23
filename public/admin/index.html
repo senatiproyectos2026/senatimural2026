@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Administrar mural</title>
+    <link rel="stylesheet" href="/admin/styles.css">
+  </head>
+  <body>
+    <main class="admin-shell">
+      <section id="loginPanel" class="login-panel">
+        <form id="loginForm" class="login-card">
+          <p class="eyebrow">Panel local</p>
+          <h1>Ingreso admin</h1>
+          <label>
+            Usuario
+            <input id="usernameInput" type="text" autocomplete="username" required>
+          </label>
+          <label>
+            Password
+            <input id="passwordInput" type="password" autocomplete="current-password" required>
+          </label>
+          <button type="submit">Ingresar</button>
+          <p id="loginMessage" class="form-message" role="status"></p>
+        </form>
+      </section>
+
+      <section id="adminPanel" class="is-hidden">
+        <header class="admin-header">
+          <div>
+            <p class="eyebrow">Panel local</p>
+            <h1>Administrar fotos</h1>
+          </div>
+          <div class="header-actions">
+            <a class="mural-link" href="/mural" target="_blank" rel="noreferrer">Ver mural</a>
+            <button id="logoutButton" class="secondary-button" type="button">Salir</button>
+          </div>
+        </header>
+
+        <form id="uploadForm" class="upload-panel">
+          <label>
+            Subir foto desde admin
+            <input id="adminPhotoInput" type="file" accept="image/*" required>
+          </label>
+          <label>
+            Frase personalizada
+            <input id="adminQuoteInput" type="text" placeholder="Opcional: si queda vacio se asigna una frase aleatoria">
+          </label>
+          <button id="uploadButton" type="submit">Subir al mural</button>
+        </form>
+        <section class="upload-panel">
+          <h2>⚙ Configuración Visual SENATI</h2>
+          <label>
+            Imagen de fondo
+            <input
+              id="backgroundInput"
+              type="file"
+              accept="image/*">
+          </label>
+          <label>
+            Frase principal
+            <input
+              id="mainPhraseInput"
+              type="text"
+              placeholder="60 años formando profesionales para el Perú">
+          </label>
+
+          <label>
+            Color institucional
+            <input
+              id="themeColorInput"
+              type="color"
+              value="#E30613">
+          </label>
+
+          <button id="saveSettingsButton" type="button">
+            Guardar configuración
+          </button>
+        </section>
+        <section class="toolbar">
+          <label>
+            Buscar
+            <input id="searchInput" type="search" placeholder="Frase, fecha o ID">
+          </label>
+          <button id="refreshButton" type="button">Actualizar</button>
+        </section>
+
+        <section class="summary" aria-live="polite">
+          <span><strong id="visibleCount">0</strong> fotos almacenadas</span>
+          <span><strong id="totalCount">0</strong> cargas historicas</span>
+          <span id="statusMessage"></span>
+        </section>
+
+        <section id="photoGrid" class="photo-grid" aria-label="Fotos administrables"></section>
+      </section>
+    </main>
+
+    <template id="photoCardTemplate">
+      <article class="photo-card">
+        <img alt="Foto enviada al mural">
+        <div class="photo-body">
+          <p class="quote"></p>
+          <time></time>
+          <code></code>
+          <button class="delete-button" type="button">Eliminar</button>
+        </div>
+      </article>
+    </template>
+
+    <script src="/admin/app.js"></script>
+  </body>
+</html>
