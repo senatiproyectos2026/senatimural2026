@@ -21,6 +21,12 @@ const {
   saveSettings
 } = require("./services/settingsStore");
 
+const {
+  addPhoto: addFeaturedPhoto,
+  getAllPhotos: getFeaturedPhotos,
+  deletePhoto: deleteFeaturedPhoto
+} = require("./services/featuredPhotoStore");
+
 const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
@@ -31,7 +37,7 @@ const io = new Server(server, {
 });
 
 const PORT = Number(process.env.PORT || 3000);
-const MAX_VISIBLE_PHOTOS = Number(process.env.MAX_VISIBLE_PHOTOS || 30);
+const MAX_VISIBLE_PHOTOS = Number(process.env.MAX_VISIBLE_PHOTOS || 45);
 const MAX_STORED_PHOTOS = Number(process.env.MAX_STORED_PHOTOS || 200);
 const UPLOAD_MAX_MB = Number(process.env.UPLOAD_MAX_MB || 8);
 const ADMIN_USER = process.env.ADMIN_USER || "admin";
@@ -112,6 +118,24 @@ app.get("/api/photos", async (_req, res, next) => {
   }
 });
 
+app.get(
+  "/api/featured-photos",
+  async (_req, res, next) => {
+    try {
+
+      const photos =
+        await getFeaturedPhotos();
+
+      res.json({
+        photos
+      });
+
+    } catch (error) {
+      next(error);
+    }
+  }
+);
+
 app.post("/api/admin/login", (req, res) => {
   const { username, password } = req.body;
 
@@ -142,11 +166,33 @@ app.get("/api/admin/me", requireAdminSession, (req, res) => {
 app.put(
   "/api/admin/settings",
   requireAdminSession,
+  upload.single("background"),
   async (req, res, next) => {
     try {
-      const settings = await saveSettings(req.body);
+      const currentSettings =
+        await getSettings();
 
-      io.emit("settings:update", settings);
+      const settings = {
+        mainPhrase:
+          req.body.mainPhrase ||
+          currentSettings.mainPhrase,
+
+        themeColor:
+          req.body.themeColor ||
+          currentSettings.themeColor,
+
+        backgroundImage:
+          req.file
+            ? `/uploads/${req.file.filename}`
+            : currentSettings.backgroundImage
+      };
+
+      await saveSettings(settings);
+
+      io.emit(
+        "settings:update",
+        settings
+      );
 
       res.json(settings);
     } catch (error) {
@@ -191,6 +237,89 @@ app.post("/api/admin/photos", requireAdminSession, upload.single("photo"), async
   }
 });
 
+app.post(
+  "/api/admin/featured-photos",
+  requireAdminSession,
+  upload.single("photo"),
+  async (req, res, next) => {
+
+    try {
+
+      if (!req.file) {
+        return res.status(400).json({
+          message: "No se recibio ninguna imagen."
+        });
+      }
+
+      const photo = {
+        id: randomUUID(),
+        filename: req.file.filename,
+        url: `/uploads/${req.file.filename}`,
+        createdAt: new Date().toISOString()
+      };
+
+      await addFeaturedPhoto(photo);
+
+      const featuredPhotos =
+        await getFeaturedPhotos();
+
+      io.emit(
+        "featured:refresh",
+        {
+          photos: featuredPhotos
+        }
+      );
+
+      res.status(201).json({
+        message: "Foto destacada agregada.",
+        photo
+      });
+
+    } catch (error) {
+      next(error);
+    }
+
+  }
+);
+
+app.delete(
+  "/api/admin/featured-photos/:id",
+  requireAdminSession,
+  async (req, res, next) => {
+
+    try {
+
+      const deletedPhoto =
+        await deleteFeaturedPhoto(
+          req.params.id
+        );
+
+      if (!deletedPhoto) {
+        return res.status(404).json({
+          message: "Foto destacada no encontrada."
+        });
+      }
+      const photos =
+        await getFeaturedPhotos();
+
+      io.emit(
+        "featured-photos:update",
+        {
+          photos
+        }
+      );
+      res.json({
+        message: "Foto destacada eliminada.",
+        photo: deletedPhoto
+      });
+
+    } catch (error) {
+      next(error);
+    }
+
+  }
+);
+
 app.post("/api/photos", upload.single("photo"), async (req, res, next) => {
   try {
     if (!req.file) {
@@ -226,7 +355,11 @@ app.delete("/api/admin/photos/:id", requireAdminSession, async (req, res, next) 
       return res.status(404).json({ message: "No se encontro la foto solicitada." });
     }
 
-    const { photos, totalCount } = await getPhotoStats(MAX_VISIBLE_PHOTOS);
+    const {
+      photos,
+      totalCount
+    } = await getAllPhotoStats();
+    
     io.emit("photos:refresh", {
       photos,
       totalCount,
@@ -242,20 +375,71 @@ app.delete("/api/admin/photos/:id", requireAdminSession, async (req, res, next) 
     next(error);
   }
 });
+app.delete(
+  "/api/admin/featured-photos/:id",
+  requireAdminSession,
+  async (req, res, next) => {
 
-io.on("connection", async (socket) => {
-  try {
-    const { photos, totalCount } = await getPhotoStats(MAX_VISIBLE_PHOTOS);
-    socket.emit("photos:init", {
-      photos,
-      totalCount,
-      limit: MAX_VISIBLE_PHOTOS
-    });
-  } catch (error) {
-    socket.emit("photos:error", {
-      message: "No se pudo cargar el mural inicial."
-    });
+    try {
+
+      const deletedPhoto =
+        await deleteFeaturedPhoto(
+          req.params.id
+        );
+
+      if (!deletedPhoto) {
+
+        return res.status(404).json({
+          message:
+            "No se encontró la foto destacada."
+        });
+
+      }
+
+      res.json({
+        message:
+          "Foto destacada eliminada.",
+        photo: deletedPhoto
+      });
+
+    } catch (error) {
+
+      next(error);
+
+    }
+
   }
+);
+io.on("connection", async (socket) => {
+
+  try {
+
+    const {
+      photos,
+      totalCount
+    } = await getAllPhotoStats();
+
+    socket.emit(
+      "photos:init",
+      {
+        photos,
+        totalCount,
+        limit: MAX_VISIBLE_PHOTOS
+      }
+    );
+
+  } catch (error) {
+
+    socket.emit(
+      "photos:error",
+      {
+        message:
+          "No se pudo cargar el mural inicial."
+      }
+    );
+
+  }
+
 });
 
 app.use((error, _req, res, _next) => {

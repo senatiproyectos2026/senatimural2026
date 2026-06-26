@@ -6,40 +6,31 @@
     <title>SENATI 60 Años | Mural Interactivo</title>
     <link rel="stylesheet" href="/mural/styles.css">
   </head>
-  <body>
-    <main class="mural-stage">
-      <header class="stage-header">
-        <div>
-          <p class="eyebrow">SENATI 60 AÑOS</p>
+<body>
 
-          <h1 id="mainPhrase">
-            Formando profesionales para transformar el Perú
-          </h1>
-        </div>
-        <div class="counter">
-          <span id="photoCount">0</span>
-          <small>participantes</small>
-        </div>
-      </header>
+  <section
+    id="mosaic"
+    class="mosaic">
+  </section>
 
-      <section id="mosaic" class="mosaic" aria-label="Mosaico de fotografias"></section>
+  <section
+    id="spotlight"
+    class="spotlight">
 
-      <section id="spotlight" class="spotlight" aria-live="polite" aria-hidden="true">
-        <div class="spotlight-media">
-          <img id="spotlightImage" alt="">
-        </div>
-        <blockquote id="spotlightQuote"></blockquote>
-      </section>
+    <div class="spotlight-media">
+      <img
+        id="spotlightImage"
+        alt="">
+    </div>
 
-      <footer class="stage-footer">
-        <span>
-          Escanea el código QR y forma parte de los 60 años de SENATI
-        </span>
-        <span id="connectionState">Conectando...</span>
-      </footer>
-    </main>
+    <blockquote
+      id="spotlightQuote">
+    </blockquote>
 
-    <script src="/socket.io/socket.io.js"></script>
-    <script src="/mural/app.js"></script>
-  </body>
+  </section>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="/mural/app.js"></script>
+
+</body>
 </html>

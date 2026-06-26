@@ -1,4 +1,8 @@
 const photoGrid = document.querySelector("#photoGrid");
+const featuredPhotoGrid =
+  document.querySelector(
+    "#featuredPhotoGrid"
+  );
 const template = document.querySelector("#photoCardTemplate");
 const loginPanel = document.querySelector("#loginPanel");
 const adminPanel = document.querySelector("#adminPanel");
@@ -8,6 +12,22 @@ const usernameInput = document.querySelector("#usernameInput");
 const passwordInput = document.querySelector("#passwordInput");
 const logoutButton = document.querySelector("#logoutButton");
 const uploadForm = document.querySelector("#uploadForm");
+
+const featuredUploadForm =
+  document.querySelector(
+    "#featuredUploadForm"
+  );
+
+const featuredPhotoInput =
+  document.querySelector(
+    "#featuredPhotoInput"
+  );
+
+const featuredUploadButton =
+  document.querySelector(
+    "#featuredUploadButton"
+  );
+
 const adminPhotoInput = document.querySelector("#adminPhotoInput");
 const adminQuoteInput = document.querySelector("#adminQuoteInput");
 const uploadButton = document.querySelector("#uploadButton");
@@ -24,6 +44,7 @@ const saveSettingsButton = document.querySelector("#saveSettingsButton");
 const backgroundInput = document.querySelector("#backgroundInput");
 
 let photos = [];
+let featuredPhotos = [];
 
 function showLogin() {
   loginPanel.classList.remove("is-hidden");
@@ -108,6 +129,7 @@ async function loadPhotos() {
     visibleCount.textContent = String(photos.length);
     totalCount.textContent = String(data.totalCount || photos.length);
     renderPhotos();
+    await loadFeaturedPhotos();
     await loadSettings();
     setStatus("Actualizado");
   } catch (error) {
@@ -116,6 +138,37 @@ async function loadPhotos() {
       showLogin();
     }
   }
+}
+
+async function loadFeaturedPhotos() {
+
+  try {
+
+    const response =
+      await fetch(
+        "/api/featured-photos"
+      );
+
+    if (!response.ok) {
+      throw new Error(
+        "No se pudieron cargar las fotos destacadas."
+      );
+    }
+
+    const data =
+      await response.json();
+
+    featuredPhotos =
+      data.photos || [];
+    renderFeaturedPhotos();
+  } catch (error) {
+
+    setStatus(
+      error.message
+    );
+
+  }
+
 }
 
 function renderPhotos() {
@@ -148,6 +201,61 @@ function renderPhotos() {
   });
 }
 
+function renderFeaturedPhotos() {
+
+  featuredPhotoGrid.innerHTML = "";
+
+  featuredPhotos.forEach((photo) => {
+
+    const card =
+      template.content
+        .firstElementChild
+        .cloneNode(true);
+
+    const image =
+      card.querySelector("img");
+
+    const quote =
+      card.querySelector(".quote");
+
+    const time =
+      card.querySelector("time");
+
+    const code =
+      card.querySelector("code");
+
+    const deleteButton =
+      card.querySelector(".delete-button");
+
+    image.src = photo.url;
+
+    quote.textContent =
+      "Foto destacada";
+
+    time.textContent =
+      formatDate(photo.createdAt);
+
+    time.dateTime =
+      photo.createdAt;
+
+    code.textContent =
+      photo.id;
+
+    deleteButton.textContent =
+      "Eliminar destacada";
+        deleteButton.addEventListener(
+      "click",
+      () =>
+        deleteFeaturedPhoto(
+          photo,
+          deleteButton
+        )
+    );
+    featuredPhotoGrid.appendChild(card);
+
+  });
+
+}
 async function deletePhoto(photo, button) {
   const confirmed = window.confirm("Eliminar esta foto del mural? Esta accion no se puede deshacer.");
   if (!confirmed) return;
@@ -177,6 +285,70 @@ async function deletePhoto(photo, button) {
   }
 }
 
+async function deleteFeaturedPhoto(photo, button) {
+
+  const confirmed =
+    window.confirm(
+      "¿Eliminar esta foto destacada?"
+    );
+
+  if (!confirmed) {
+    return;
+  }
+
+  try {
+
+    button.disabled = true;
+
+    button.textContent =
+      "Eliminando...";
+
+    const response =
+      await fetch(
+        `/api/admin/featured-photos/${photo.id}`,
+        {
+          method: "DELETE"
+        }
+      );
+
+    if (!response.ok) {
+
+      const error =
+        await response.json()
+          .catch(() => ({}));
+
+      throw new Error(
+        error.message ||
+        "No se pudo eliminar."
+      );
+
+    }
+
+    featuredPhotos =
+      featuredPhotos.filter(
+        item => item.id !== photo.id
+      );
+
+    renderFeaturedPhotos();
+
+    setStatus(
+      "Foto destacada eliminada."
+    );
+
+  } catch (error) {
+
+    button.disabled = false;
+
+    button.textContent =
+      "Eliminar destacada";
+
+    setStatus(
+      error.message
+    );
+
+  }
+
+}
 async function uploadPhoto(event) {
   event.preventDefault();
 
@@ -228,6 +400,10 @@ function formatDate(value) {
 loginForm.addEventListener("submit", login);
 logoutButton.addEventListener("click", logout);
 uploadForm.addEventListener("submit", uploadPhoto);
+featuredUploadForm.addEventListener(
+  "submit",
+  uploadFeaturedPhoto
+);
 refreshButton.addEventListener("click", loadPhotos);
 searchInput.addEventListener("input", renderPhotos);
 saveSettingsButton.addEventListener("click", saveSettings);
@@ -258,21 +434,44 @@ async function saveSettings() {
     saveSettingsButton.disabled = true;
     saveSettingsButton.textContent = "Guardando...";
 
-    const response = await fetch("/api/admin/settings", {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json"
-      },
-      body: JSON.stringify({
-        mainPhrase: mainPhraseInput.value.trim(),
-        themeColor: themeColorInput.value,
-        backgroundImage: window.currentBackground || ""
-      })
-    });
+    const formData = new FormData();
+
+    formData.append(
+      "mainPhrase",
+      mainPhraseInput.value.trim()
+    );
+
+    formData.append(
+      "themeColor",
+      themeColorInput.value
+    );
+
+    const backgroundFile =
+      backgroundInput.files?.[0];
+
+    if (backgroundFile) {
+      formData.append(
+        "background",
+        backgroundFile
+      );
+    }
+
+    const response = await fetch(
+      "/api/admin/settings",
+      {
+        method: "PUT",
+        body: formData
+      }
+    );
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || "No se pudo guardar.");
+      const error =
+        await response.json().catch(() => ({}));
+
+      throw new Error(
+        error.message ||
+        "No se pudo guardar."
+      );
     }
 
     setStatus("Configuración guardada");
@@ -280,7 +479,87 @@ async function saveSettings() {
     setStatus(error.message);
   } finally {
     saveSettingsButton.disabled = false;
-    saveSettingsButton.textContent = "Guardar configuración";
+    saveSettingsButton.textContent =
+      "Guardar configuración";
+  }
+}
+
+async function uploadFeaturedPhoto(
+  event
+) {
+
+  event.preventDefault();
+
+  const file =
+    featuredPhotoInput.files?.[0];
+
+  if (!file) {
+
+    setStatus(
+      "Selecciona una foto destacada."
+    );
+
+    return;
+  }
+
+  try {
+
+    featuredUploadButton.disabled =
+      true;
+
+    featuredUploadButton.textContent =
+      "Subiendo...";
+
+    const formData =
+      new FormData();
+
+    formData.append(
+      "photo",
+      file
+    );
+
+    const response =
+      await fetch(
+        "/api/admin/featured-photos",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
+
+    if (!response.ok) {
+
+      const error =
+        await response.json()
+          .catch(() => ({}));
+
+      throw new Error(
+        error.message ||
+        "No se pudo subir."
+      );
+    }
+
+    featuredUploadForm.reset();
+
+    await loadFeaturedPhotos();
+
+    setStatus(
+      "Foto destacada subida."
+    );
+
+  } catch (error) {
+
+    setStatus(
+      error.message
+    );
+
+  } finally {
+
+    featuredUploadButton.disabled =
+      false;
+
+    featuredUploadButton.textContent =
+      "Subir foto destacada";
   }
 }
 

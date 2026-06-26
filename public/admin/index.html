@@ -48,6 +48,28 @@
           </label>
           <button id="uploadButton" type="submit">Subir al mural</button>
         </form>
+        <form
+          id="featuredUploadForm"
+          class="upload-panel">
+
+          <label>
+            ⭐ Foto destacada
+            <input
+              id="featuredPhotoInput"
+              type="file"
+              accept="image/*"
+              required>
+          </label>
+
+          <button
+            id="featuredUploadButton"
+            type="submit">
+
+            Subir foto destacada
+
+          </button>
+
+        </form>
         <section class="upload-panel">
           <h2>⚙ Configuración Visual SENATI</h2>
           <label>
@@ -92,6 +114,12 @@
         </section>
 
         <section id="photoGrid" class="photo-grid" aria-label="Fotos administrables"></section>
+        <h2>Fotos destacadas</h2>
+
+        <section
+          id="featuredPhotoGrid"
+          class="photo-grid">
+        </section>
       </section>
     </main>
 
