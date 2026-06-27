@@ -74,8 +74,10 @@ input {
 .brand {
   display: flex;
   align-items: center;
-  gap: 10px;
-  margin-bottom: 34px;
+  gap: 52px;
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+  padding-left: 8px;
   color: var(--muted);
   font-size: 0.9rem;
   font-weight: 700;

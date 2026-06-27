@@ -145,24 +145,27 @@ function downloadSenatiPhoto() {
     1080
   );
 
-  ctx.lineWidth = 24;
-  ctx.strokeStyle = "#003DA5";
-  ctx.strokeRect(12, 12, 1056, 1056);
+  // Marco institucional
+  ctx.lineWidth = 8;
+  ctx.strokeStyle = "#005BAA";
+  ctx.strokeRect(20, 20, 1040, 1040);
 
-  ctx.fillStyle = "#E30613";
-  ctx.fillRect(0, 0, 1080, 120);
+  // Barra superior
+  ctx.fillStyle = "#005BAA";
+  ctx.fillRect(0, 0, 1080, 100);
 
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 48px Arial";
+  ctx.fillStyle = "#FFFFFF";
+  ctx.font = "bold 46px Arial";
   ctx.textAlign = "center";
 
   ctx.fillText(
-    "SENATI 60 AÑOS",
+    "SENATI | 60 AÑOS",
     540,
-    75
+    64
   );
 
-  ctx.fillStyle = "#E30613";
+  // Barra inferior
+  ctx.fillStyle = "#005BAA";
   ctx.fillRect(0, 980, 1080, 100);
 
   ctx.fillStyle = "#ffffff";
@@ -209,7 +212,7 @@ async function uploadPhoto() {
   try {
     setStatus("Enviando foto...");
     sendButton.disabled = true;
-
+    downloadSenatiPhoto();
     const blob = await canvasToBlob();
     const formData = new FormData();
     formData.append("photo", blob, "mural-foto.jpg");
@@ -256,11 +259,6 @@ window.addEventListener("mouseup", endDrag);
 cropCanvas.addEventListener("touchstart", startDrag, { passive: true });
 cropCanvas.addEventListener("touchmove", moveDrag, { passive: false });
 window.addEventListener("touchend", endDrag);
-
-downloadButton.addEventListener(
-  "click",
-  downloadSenatiPhoto
-);
 
 sendButton.addEventListener("click", uploadPhoto);
 

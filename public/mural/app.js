@@ -16,7 +16,19 @@ let spotlightTimer = null;
 let allPhotos = [];
 let visiblePhotos = [];
 let featuredPhotos = [];
+
+/*
+  Guardará los 45 cuadros del mural.
+  Así no tendremos que volver a crearlos.
+*/
+let gridTiles = [];
+
 let featuredOffset = 0;
+
+let spotlightActive = false;
+
+let featuredPositionIndex = 0;
+
 const GRID_SIZE = 45;
 
 async function loadSettings() {
@@ -85,39 +97,65 @@ function shuffle(array) {
 }
 
 function renderGrid() {
-  mosaic.innerHTML = "";
 
-  visiblePhotos.forEach((photo) => {
+  if (gridTiles.length === 0) {
 
-    const tile =
+    mosaic.innerHTML = "";
+
+    visiblePhotos.forEach((photo) => {
+
+      const tile =
         document.createElement("div");
 
       tile.className = "grid-photo";
 
       const tilt =
-        (Math.random() * 4 - 2);
+        Math.random() * 4 - 2;
 
       tile.style.setProperty(
         "--tilt",
         `${tilt}deg`
       );
 
+      const image =
+        document.createElement("img");
+
+      image.alt = "";
+      image.src = photo.url;
+
+      const duration =
+        8 + Math.random() * 8;
+
+      image.style.animationDuration =
+        `${duration}s`;
+
+      tile.appendChild(image);
+
+      mosaic.appendChild(tile);
+
+      gridTiles.push(tile);
+
+    });
+
+    return;
+
+  }
+
+  visiblePhotos.forEach((photo, index) => {
+
+    const tile =
+      gridTiles[index];
+
+    if (!tile) return;
+
     const image =
-  document.createElement("img");
+      tile.querySelector("img");
 
-  image.src = photo.url;
-  image.alt = "";
+    image.src =
+      photo.url;
 
-  const duration =
-    8 + Math.random() * 8;
-
-  image.style.animationDuration =
-    `${duration}s`;
-
-    tile.appendChild(image);
-
-    mosaic.appendChild(tile);
   });
+
 }
 
 /*function initializeGrid() {
@@ -169,11 +207,13 @@ function renderGrid() {
   }*/
 
 function initializeGrid() {
+  if (visiblePhotos.length === 0) {
 
-  visiblePhotos =
-    shuffle(allPhotos)
-      .slice(0, GRID_SIZE);
+    visiblePhotos =
+      shuffle(allPhotos)
+        .slice(0, GRID_SIZE);
 
+  }
   const featuredPositions = [
     10,
     16,
@@ -206,7 +246,9 @@ function initializeGrid() {
   renderGrid();
 }
 function rotatePhotos() {
-
+  if (spotlightActive) {
+    return;
+  }
   if (
     allPhotos.length <= GRID_SIZE
   ) {
@@ -249,28 +291,174 @@ function rotatePhotos() {
         )
       );
 
-    const photo =
-      allPhotos[
-        Math.floor(
-          Math.random() *
-          allPhotos.length
-        )
-      ];
+      let photo;
+
+      let attempts = 0;
+
+      do {
+
+        photo =
+          allPhotos[
+            Math.floor(
+              Math.random() *
+              allPhotos.length
+            )
+          ];
+
+        attempts++;
+
+      } while (
+
+        visiblePhotos.some(
+          visible =>
+            visible &&
+            visible.id === photo.id
+        ) &&
+
+        attempts < 100
+
+      );
 
     const tile =
       tiles[tileIndex];
 
     tile.classList.add("fade");
 
+    // Espera a que aparezca el destello blanco
     setTimeout(() => {
 
       tile.querySelector("img").src =
         photo.url;
+      visiblePhotos[tileIndex] =
+      photo;
+    }, 450);
+
+    // Mantiene el destello un poco más
+    setTimeout(() => {
 
       tile.classList.remove("fade");
 
-    }, 600);
+    }, 900);
   }
+}
+
+function rotateFeaturedPhotos() {
+
+  if (spotlightActive) {
+    return;
+  }
+
+  if (featuredPhotos.length <= 1) {
+    return;
+  }
+
+  const featuredPositions = [
+    10,
+    16,
+    22,
+    28,
+    34
+  ];
+
+  const position =
+    featuredPositions[
+      featuredPositionIndex
+    ];
+
+  const tile =
+    gridTiles[position];
+
+  if (!tile) {
+    return;
+  }
+
+  let photo;
+
+  let attempts = 0;
+
+  do {
+
+    featuredOffset++;
+
+    const photoIndex =
+      featuredOffset %
+      featuredPhotos.length;
+
+    photo =
+      featuredPhotos[photoIndex];
+
+    attempts++;
+
+  } while (
+
+    visiblePhotos.some(
+      visible =>
+        visible &&
+        visible.id === photo.id
+    ) &&
+
+    attempts < featuredPhotos.length
+
+  );
+
+  visiblePhotos[position] =
+    photo;
+
+  const image =
+    tile.querySelector("img");
+
+  tile.classList.add("fade");
+
+  setTimeout(() => {
+
+    image.src =
+      photo.url;
+
+  }, 450);
+
+  setTimeout(() => {
+
+    tile.classList.remove(
+      "fade"
+    );
+
+  }, 900);
+
+  featuredPositionIndex =
+    (featuredPositionIndex + 1) %
+    featuredPositions.length;
+
+}
+
+function showNewestPhoto(photo) {
+
+  const position = 13;
+
+  const tile = gridTiles[position];
+
+  if (!tile) {
+    return;
+  }
+
+  visiblePhotos[position] = photo;
+
+  const image =
+    tile.querySelector("img");
+
+  tile.classList.add("fade");
+
+  setTimeout(() => {
+
+    image.src = photo.url;
+
+  }, 450);
+
+  setTimeout(() => {
+
+    tile.classList.remove("fade");
+
+  }, 900);
+
 }
 
 socket.on(
@@ -285,6 +473,7 @@ socket.on(
     initializeGrid();
   }
 );
+
 socket.on(
   "photo:new",
   (payload) => {
@@ -299,9 +488,12 @@ socket.on(
 
     setTimeout(() => {
 
-      initializeGrid();
+      showNewestPhoto(
+        payload.photo
+      );
 
     }, 5000);
+
   }
 );
 
@@ -362,7 +554,7 @@ function showSpotlight(photo) {
   clearTimeout(
     spotlightTimer
   );
-
+  spotlightActive = true;
   spotlightImage.src =
     photo.url;
 
@@ -372,14 +564,19 @@ function showSpotlight(photo) {
   spotlight.classList.add(
     "is-active"
   );
-
+  mosaic.classList.add(
+    "is-hidden"
+  );
   spotlightTimer =
     setTimeout(() => {
 
       spotlight.classList.remove(
         "is-active"
       );
-
+      mosaic.classList.remove(
+        "is-hidden"
+      );
+      spotlightActive = false;
     }, 5000);
 }
 
@@ -388,15 +585,7 @@ loadFeaturedPhotos();
 startRandomRotation();
 setInterval(() => {
 
-  if (
-    featuredPhotos.length <= 5
-  ) {
-    return;
-  }
-
-  featuredOffset++;
-
-  initializeGrid();
+  rotateFeaturedPhotos();
 
 }, 5000);
 
