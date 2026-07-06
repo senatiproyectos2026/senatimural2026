@@ -43,6 +43,11 @@ const saveSettingsButton = document.querySelector("#saveSettingsButton");
 
 const backgroundInput = document.querySelector("#backgroundInput");
 
+const limitOnePhotoCheckbox =
+  document.querySelector(
+    "#limitOnePhotoCheckbox"
+  );
+
 let photos = [];
 let featuredPhotos = [];
 
@@ -424,6 +429,9 @@ async function loadSettings() {
     window.currentBackground =
       settings.backgroundImage || "";
 
+    limitOnePhotoCheckbox.checked =
+      settings.limitOnePhotoPerDevice || false;
+
   } catch (error) {
     setStatus(error.message);
   }
@@ -446,6 +454,10 @@ async function saveSettings() {
       themeColorInput.value
     );
 
+    formData.append(
+      "limitOnePhotoPerDevice",
+      limitOnePhotoCheckbox.checked
+    );
     const backgroundFile =
       backgroundInput.files?.[0];
 

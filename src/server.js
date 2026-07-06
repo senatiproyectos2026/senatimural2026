@@ -184,7 +184,10 @@ app.put(
         backgroundImage:
           req.file
             ? `/uploads/${req.file.filename}`
-            : currentSettings.backgroundImage
+            : currentSettings.backgroundImage,
+
+        limitOnePhotoPerDevice:
+          req.body.limitOnePhotoPerDevice === "true"
       };
 
       await saveSettings(settings);

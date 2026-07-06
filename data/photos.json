@@ -1,5 +1,12 @@
 [
   {
+    "id": "ddb5ea1f-4ce0-47b6-a614-db01d5940fc5",
+    "filename": "1783015738317-0fb06045-5319-4524-8072-c6f4b9da79d3.jpg",
+    "url": "/uploads/1783015738317-0fb06045-5319-4524-8072-c6f4b9da79d3.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-07-02T18:08:58.318Z"
+  },
+  {
     "id": "aeaa716f-1c86-48e6-8da7-63d33ad8b6f6",
     "filename": "1782599969288-c877e67b-5484-4a12-8983-d1c343bf4b12.jpg",
     "url": "/uploads/1782599969288-c877e67b-5484-4a12-8983-d1c343bf4b12.jpg",
@@ -210,13 +217,6 @@
     "createdAt": "2026-06-25T18:07:31.874Z"
   },
   {
-    "id": "6e8d580c-b67d-419d-bdbb-d20a243929ea",
-    "filename": "1782410843130-98f4be3a-104e-4521-8987-e36305a6e01d.jpg",
-    "url": "/uploads/1782410843130-98f4be3a-104e-4521-8987-e36305a6e01d.jpg",
-    "quote": "La ciencia avanza cuando alguien se atreve a medir lo invisible.",
-    "createdAt": "2026-06-25T18:07:23.132Z"
-  },
-  {
     "id": "4e101bee-010e-4d67-997e-cfbe96e79140",
     "filename": "1782408990875-98094e79-ef3f-437a-bb22-59dc7a8ce851.jpg",
     "url": "/uploads/1782408990875-98094e79-ef3f-437a-bb22-59dc7a8ce851.jpg",
@@ -364,13 +364,6 @@
     "createdAt": "2026-06-24T18:47:17.112Z"
   },
   {
-    "id": "1fad6616-2de4-4ce4-be03-6be735c12443",
-    "filename": "1782326831098-6cef76e6-b658-4e09-accb-aaf815f44638.jpg",
-    "url": "/uploads/1782326831098-6cef76e6-b658-4e09-accb-aaf815f44638.jpg",
-    "quote": "La curiosidad enciende la inteligencia.",
-    "createdAt": "2026-06-24T18:47:11.099Z"
-  },
-  {
     "id": "e98eb230-2bb0-4773-b864-9f81e44952a6",
     "filename": "1782326820184-685d1caa-7d21-45a9-afba-359ee9ccf5b8.jpg",
     "url": "/uploads/1782326820184-685d1caa-7d21-45a9-afba-359ee9ccf5b8.jpg",
@@ -427,13 +420,6 @@
     "createdAt": "2026-06-24T18:38:14.961Z"
   },
   {
-    "id": "a90e8952-3bf7-473c-b945-80d3bb3aaf31",
-    "filename": "1782326288073-2fd0766a-98d9-424e-9367-4b5ef864c359.jpg",
-    "url": "/uploads/1782326288073-2fd0766a-98d9-424e-9367-4b5ef864c359.jpg",
-    "quote": "El conocimiento crece cuando se comparte.",
-    "createdAt": "2026-06-24T18:38:08.074Z"
-  },
-  {
     "id": "4bc2dba6-9ef7-427d-9177-d5320c27b47b",
     "filename": "1782326282872-f80529c7-18bd-4503-9d39-73222b6b58d6.jpg",
     "url": "/uploads/1782326282872-f80529c7-18bd-4503-9d39-73222b6b58d6.jpg",
@@ -446,13 +432,6 @@
     "url": "/uploads/1782326267259-79b09a16-6bb7-4319-9fcb-9c87eecd76f1.jpg",
     "quote": "Crear es resistir al olvido.",
     "createdAt": "2026-06-24T18:37:47.260Z"
-  },
-  {
-    "id": "75414c9c-b6a6-446b-9562-6267115f26b6",
-    "filename": "1782326245048-986de27c-72c7-45a4-b255-557681cb524f.jpg",
-    "url": "/uploads/1782326245048-986de27c-72c7-45a4-b255-557681cb524f.jpg",
-    "quote": "Todo gran descubrimiento nace de una duda.",
-    "createdAt": "2026-06-24T18:37:25.049Z"
   },
   {
     "id": "c478c97f-d23e-41c8-af00-3d5979d805ad",
@@ -481,13 +460,6 @@
     "url": "/uploads/1782326209013-e6af1122-17b9-4f2f-9546-8a32d18d7d21.jpg",
     "quote": "Toda obra es una ventana hacia otra mirada.",
     "createdAt": "2026-06-24T18:36:49.014Z"
-  },
-  {
-    "id": "85c1d5ee-7104-4f85-87eb-ee9493e607c6",
-    "filename": "1782326203095-4d8570bb-cc4e-4bc7-b83e-97a4e6b2e5d7.jpg",
-    "url": "/uploads/1782326203095-4d8570bb-cc4e-4bc7-b83e-97a4e6b2e5d7.jpg",
-    "quote": "Todo gran descubrimiento nace de una duda.",
-    "createdAt": "2026-06-24T18:36:43.096Z"
   },
   {
     "id": "372858ca-0c35-4634-b451-65bb19062b25",

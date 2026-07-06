@@ -245,6 +245,7 @@ function initializeGrid() {
 
   renderGrid();
 }
+
 function rotatePhotos() {
   if (spotlightActive) {
     return;
@@ -507,6 +508,7 @@ socket.on(
     await loadFeaturedPhotos();
 
     initializeGrid();
+
   }
 );
 

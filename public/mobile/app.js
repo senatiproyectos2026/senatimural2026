@@ -20,6 +20,48 @@ const state = {
   lastX: 0,
   lastY: 0
 };
+let appSettings = {
+  limitOnePhotoPerDevice: false
+};
+
+async function loadSettings() {
+  try {
+    const response =
+      await fetch("/api/settings");
+
+    if (!response.ok) {
+      return;
+    }
+    appSettings =
+      await response.json();
+    if (hasAlreadyParticipated()) {
+      setStatus(
+        "Ya participaste. ¡Gracias por ser parte de los 60 años de SENATI!"
+      );
+      setStep(successStep);
+      newPhotoButton.style.display =
+        "none";
+    }
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+function hasAlreadyParticipated() {
+
+  if (
+    !appSettings.limitOnePhotoPerDevice
+  ) {
+    return false;
+  }
+
+  return (
+    localStorage.getItem(
+      "senati60Participated"
+    ) === "true"
+  );
+
+}
 const senatiQuotes = [
   "El futuro se construye con conocimiento",
   "Aprender hoy, liderar mañana",
@@ -207,33 +249,77 @@ function downloadSenatiPhoto() {
 }
 
 async function uploadPhoto() {
+
   if (!state.image) return;
 
   try {
-    setStatus("Enviando foto...");
-    sendButton.disabled = true;
-    downloadSenatiPhoto();
-    const blob = await canvasToBlob();
-    const formData = new FormData();
-    formData.append("photo", blob, "mural-foto.jpg");
 
-    const response = await fetch("/api/photos", {
-      method: "POST",
-      body: formData
-    });
+    setStatus(
+      "Enviando foto..."
+    );
+
+    sendButton.disabled = true;
+
+    downloadSenatiPhoto();
+
+    const blob =
+      await canvasToBlob();
+
+    const formData =
+      new FormData();
+
+    formData.append(
+      "photo",
+      blob,
+      "mural-foto.jpg"
+    );
+
+    const response =
+      await fetch(
+        "/api/photos",
+        {
+          method: "POST",
+          body: formData
+        }
+      );
 
     if (!response.ok) {
-      const error = await response.json().catch(() => ({}));
-      throw new Error(error.message || "No se pudo enviar la foto.");
+
+      const error =
+        await response
+          .json()
+          .catch(() => ({}));
+
+      throw new Error(
+        error.message ||
+        "No se pudo enviar la foto."
+      );
+
     }
 
     setStatus("");
+
+    if (
+      appSettings.limitOnePhotoPerDevice
+    ) {
+
+      localStorage.setItem(
+        "senati60Participated",
+        "true"
+      );
+
+    }
+
     setStep(successStep);
+
   } catch (error) {
+
     setStatus(error.message);
+
   } finally {
     sendButton.disabled = false;
   }
+
 }
 
 photoInput.addEventListener("change", (event) => {
@@ -270,8 +356,18 @@ backButton.addEventListener("click", () => {
 });
 
 newPhotoButton.addEventListener("click", () => {
+  if (
+    appSettings.limitOnePhotoPerDevice
+  ) {
+    setStatus(
+      "Ya participaste. Gracias por ser parte de los 60 años de SENATI."
+    );
+    return;
+  }
   photoInput.value = "";
   state.image = null;
   setStep(captureStep);
   setStatus("");
 });
+
+loadSettings();
