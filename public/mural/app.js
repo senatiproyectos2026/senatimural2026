@@ -207,13 +207,11 @@ function renderGrid() {
   }*/
 
 function initializeGrid() {
-  if (visiblePhotos.length === 0) {
 
-    visiblePhotos =
-      shuffle(allPhotos)
-        .slice(0, GRID_SIZE);
+  visiblePhotos =
+    shuffle(allPhotos)
+      .slice(0, GRID_SIZE);
 
-  }
   const featuredPositions = [
     10,
     16,
@@ -225,9 +223,7 @@ function initializeGrid() {
   featuredPositions.forEach(
     (position, index) => {
 
-      if (
-        featuredPhotos.length
-      ) {
+      if (featuredPhotos.length) {
 
         const photoIndex =
           (
@@ -236,14 +232,18 @@ function initializeGrid() {
           ) %
           featuredPhotos.length;
 
-        visiblePhotos[position] =
-          featuredPhotos[photoIndex];
+        if (visiblePhotos.length > position) {
+          visiblePhotos[position] =
+            featuredPhotos[photoIndex];
+        }
+
       }
 
     }
   );
 
   renderGrid();
+
 }
 function rotatePhotos() {
   if (spotlightActive) {

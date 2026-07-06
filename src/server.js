@@ -230,7 +230,12 @@ app.post("/api/admin/photos", requireAdminSession, upload.single("photo"), async
       totalCount,
       removedIds: removedFromMural
     });
-
+    io.emit("photos:refresh", {
+      photos,
+      totalCount,
+      limit: MAX_VISIBLE_PHOTOS,
+      reason: "photo-added"
+    });
     res.status(201).json({
       message: "Foto agregada desde el panel admin.",
       photo
@@ -340,7 +345,12 @@ app.post("/api/photos", upload.single("photo"), async (req, res, next) => {
       totalCount,
       removedIds: removedFromMural
     });
-
+    io.emit("photos:refresh", {
+      photos,
+      totalCount,
+      limit: MAX_VISIBLE_PHOTOS,
+      reason: "photo-added"
+    });
     res.status(201).json({
       message: "Foto agregada al mural.",
       photo
