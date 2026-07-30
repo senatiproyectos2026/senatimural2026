@@ -1,17 +1,346 @@
 [
   {
-    "id": "b95c9006-b8e9-4b36-a2d0-6c198f467432",
-    "filename": "1783358841402-77e47b56-2764-4999-880b-d0a564e93141.jpg",
-    "url": "/uploads/1783358841402-77e47b56-2764-4999-880b-d0a564e93141.jpg",
-    "quote": "Todo gran descubrimiento nace de una duda.",
-    "createdAt": "2026-07-06T17:27:21.404Z"
+    "id": "d7f54c28-8080-4327-bfcd-0e2be91a2448",
+    "filename": "1785210542591-a69d8453-e975-4228-84d3-a297d5ec6965.jpg",
+    "url": "/uploads/1785210542591-a69d8453-e975-4228-84d3-a297d5ec6965.jpg",
+    "quote": "La historia es memoria viva.",
+    "createdAt": "2026-07-28T03:49:02.593Z"
   },
   {
-    "id": "f9ee6d90-8fec-4e8c-82fa-49e5b41be1d7",
-    "filename": "1783358799147-fc69bbec-e84c-4d78-a44e-6698507d54e0.jpg",
-    "url": "/uploads/1783358799147-fc69bbec-e84c-4d78-a44e-6698507d54e0.jpg",
+    "id": "b86ccd5b-ac18-4039-b454-954857cb861c",
+    "filename": "1785210345143-c64cbcf6-816d-41bf-a10a-9d2d095e7921.jpg",
+    "url": "/uploads/1785210345143-c64cbcf6-816d-41bf-a10a-9d2d095e7921.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-07-28T03:45:45.283Z"
+  },
+  {
+    "id": "8fa3a5eb-be1c-4bf3-a8f1-87216ed2fefe",
+    "filename": "1785210047566-ca092e22-b61e-4522-ae71-a1ebc3831514.jpg",
+    "url": "/uploads/1785210047566-ca092e22-b61e-4522-ae71-a1ebc3831514.jpg",
+    "quote": "La imaginacion es el laboratorio del futuro.",
+    "createdAt": "2026-07-28T03:40:47.739Z"
+  },
+  {
+    "id": "fc9e91a5-65b9-424b-8c78-3e9df71f27cf",
+    "filename": "1785209773297-80b6431b-1bca-497f-8d2f-d669f92a1b0f.jpg",
+    "url": "/uploads/1785209773297-80b6431b-1bca-497f-8d2f-d669f92a1b0f.jpg",
+    "quote": "Observar es el primer acto de creacion.",
+    "createdAt": "2026-07-28T03:36:13.567Z"
+  },
+  {
+    "id": "100148c2-2823-44ce-ab71-1f9eaf08f493",
+    "filename": "1785209656447-64af6f1c-ef4a-416a-bf54-21cd90603062.jpg",
+    "url": "/uploads/1785209656447-64af6f1c-ef4a-416a-bf54-21cd90603062.jpg",
+    "quote": "Observar es el primer acto de creacion.",
+    "createdAt": "2026-07-28T03:34:16.657Z"
+  },
+  {
+    "id": "a792f9c8-91fc-43cf-9034-5e1b7bdc9179",
+    "filename": "1785192134255-40816ea8-e9db-4a47-8f3c-f9bec7dea2ff.jpg",
+    "url": "/uploads/1785192134255-40816ea8-e9db-4a47-8f3c-f9bec7dea2ff.jpg",
     "quote": "Toda obra es una ventana hacia otra mirada.",
-    "createdAt": "2026-07-06T17:26:39.149Z"
+    "createdAt": "2026-07-27T22:42:14.257Z"
+  },
+  {
+    "id": "a3147254-a823-4f1b-9bf7-9f9540a769d0",
+    "filename": "1785191867318-571b261f-9505-4875-b354-c5554e3d4f4c.jpg",
+    "url": "/uploads/1785191867318-571b261f-9505-4875-b354-c5554e3d4f4c.jpg",
+    "quote": "El arte no reproduce lo visible: lo hace visible.",
+    "createdAt": "2026-07-27T22:37:47.354Z"
+  },
+  {
+    "id": "7a025113-2048-48d3-912b-9f84486edb4e",
+    "filename": "1785191750867-d935affa-5121-43db-80b3-06eb5739d33d.jpg",
+    "url": "/uploads/1785191750867-d935affa-5121-43db-80b3-06eb5739d33d.jpg",
+    "quote": "La historia es memoria viva.",
+    "createdAt": "2026-07-27T22:35:50.889Z"
+  },
+  {
+    "id": "40bc989d-fc69-4e9c-9af8-a7f4764d4dff",
+    "filename": "1785191561676-a25e1775-5120-4a91-8574-241e348f4624.jpg",
+    "url": "/uploads/1785191561676-a25e1775-5120-4a91-8574-241e348f4624.jpg",
+    "quote": "El arte lava del alma el polvo de la vida cotidiana.",
+    "createdAt": "2026-07-27T22:32:41.710Z"
+  },
+  {
+    "id": "d1b0f610-48d6-479d-b275-03af2900aa02",
+    "filename": "1785191465572-fc4b384a-a3d6-4bf5-ad1c-2bfe0b72c543.jpg",
+    "url": "/uploads/1785191465572-fc4b384a-a3d6-4bf5-ad1c-2bfe0b72c543.jpg",
+    "quote": "La historia cambia cuando cambia quien la cuenta.",
+    "createdAt": "2026-07-27T22:31:05.603Z"
+  },
+  {
+    "id": "849c33be-39eb-4d2e-9d88-0fe3105f88c0",
+    "filename": "1785191436831-3246895d-08e4-4dc7-abd2-67c78845d0eb.jpg",
+    "url": "/uploads/1785191436831-3246895d-08e4-4dc7-abd2-67c78845d0eb.jpg",
+    "quote": "Crear es resistir al olvido.",
+    "createdAt": "2026-07-27T22:30:36.834Z"
+  },
+  {
+    "id": "42592437-2965-4c15-bb04-4bfeafe1ad0d",
+    "filename": "1785191348977-16c43c42-dfc9-4cde-8bb2-c341d83f5697.jpg",
+    "url": "/uploads/1785191348977-16c43c42-dfc9-4cde-8bb2-c341d83f5697.jpg",
+    "quote": "El arte no reproduce lo visible: lo hace visible.",
+    "createdAt": "2026-07-27T22:29:08.980Z"
+  },
+  {
+    "id": "04ff0ac5-ebb9-4c71-875b-9df75f327191",
+    "filename": "1785191128859-739e66fc-a59f-48cc-a558-44a8734b9f56.jpg",
+    "url": "/uploads/1785191128859-739e66fc-a59f-48cc-a558-44a8734b9f56.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-07-27T22:25:28.863Z"
+  },
+  {
+    "id": "97d1d7f6-4876-435a-a308-ef99b130e9f4",
+    "filename": "1785190759559-0d825786-b677-49a4-ab67-58fe53fec2e8.jpg",
+    "url": "/uploads/1785190759559-0d825786-b677-49a4-ab67-58fe53fec2e8.jpg",
+    "quote": "El color tambien piensa.",
+    "createdAt": "2026-07-27T22:19:19.583Z"
+  },
+  {
+    "id": "f7ea0c69-b894-42cf-9e89-80e30ae764a3",
+    "filename": "1785188633999-e4dacb0f-1998-49ac-b306-e96574100c1a.jpg",
+    "url": "/uploads/1785188633999-e4dacb0f-1998-49ac-b306-e96574100c1a.jpg",
+    "quote": "La memoria colectiva tambien se construye en imagenes.",
+    "createdAt": "2026-07-27T21:43:54.004Z"
+  },
+  {
+    "id": "fbcac3ec-a172-4b47-89e0-9792aa82aa99",
+    "filename": "1785168552980-0277dd1b-b05e-493a-96a8-109008c8419c.jpg",
+    "url": "/uploads/1785168552980-0277dd1b-b05e-493a-96a8-109008c8419c.jpg",
+    "quote": "La imaginacion es el laboratorio del futuro.",
+    "createdAt": "2026-07-27T16:09:12.981Z"
+  },
+  {
+    "id": "7c83deae-d7db-4613-b0c8-1a6dd78230a6",
+    "filename": "1785168380690-5efafda2-6c18-4966-bff1-c40f22189cfe.jpg",
+    "url": "/uploads/1785168380690-5efafda2-6c18-4966-bff1-c40f22189cfe.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-07-27T16:06:20.727Z"
+  },
+  {
+    "id": "a7559e76-4129-4547-b64e-ad0a8feafea2",
+    "filename": "1785168329705-5f1061f3-1feb-4e42-ab32-efdcc5d40d51.jpg",
+    "url": "/uploads/1785168329705-5f1061f3-1feb-4e42-ab32-efdcc5d40d51.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-07-27T16:05:29.733Z"
+  },
+  {
+    "id": "fdfd9323-48d8-47b4-a6fb-530209b055f9",
+    "filename": "1785168282264-c272430a-1551-4655-9385-f354eca0bd4c.jpg",
+    "url": "/uploads/1785168282264-c272430a-1551-4655-9385-f354eca0bd4c.jpg",
+    "quote": "Observar es el primer acto de creacion.",
+    "createdAt": "2026-07-27T16:04:42.305Z"
+  },
+  {
+    "id": "34d430fd-67e0-4ac8-8321-c5c7198dea05",
+    "filename": "1785167052551-50cc00cc-f102-4cab-b143-d764941c7dad.jpg",
+    "url": "/uploads/1785167052551-50cc00cc-f102-4cab-b143-d764941c7dad.jpg",
+    "quote": "Crear es resistir al olvido.",
+    "createdAt": "2026-07-27T15:44:12.553Z"
+  },
+  {
+    "id": "7926b6ac-1dc2-427f-8046-4e31c863bc76",
+    "filename": "1785166901354-f427679e-dcb8-44df-9cd9-4d16228cc7f2.jpg",
+    "url": "/uploads/1785166901354-f427679e-dcb8-44df-9cd9-4d16228cc7f2.jpg",
+    "quote": "El arte lava del alma el polvo de la vida cotidiana.",
+    "createdAt": "2026-07-27T15:41:41.387Z"
+  },
+  {
+    "id": "04cac115-1393-43c6-b7cf-f6899467f429",
+    "filename": "1785166442262-e053d602-b68d-4f6c-85eb-518492abf0df.jpg",
+    "url": "/uploads/1785166442262-e053d602-b68d-4f6c-85eb-518492abf0df.jpg",
+    "quote": "El arte lava del alma el polvo de la vida cotidiana.",
+    "createdAt": "2026-07-27T15:34:02.291Z"
+  },
+  {
+    "id": "74b243ae-1c06-40e3-851a-4a20c3022e8b",
+    "filename": "1785162876650-4bf50f11-279a-448e-8658-335233a00d82.jpg",
+    "url": "/uploads/1785162876650-4bf50f11-279a-448e-8658-335233a00d82.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-07-27T14:34:36.683Z"
+  },
+  {
+    "id": "b1cb3a91-b71c-41c1-bec2-d7e67330d47a",
+    "filename": "1785162792325-485db519-f962-4a2e-b961-f1b0b32c8a5c.jpg",
+    "url": "/uploads/1785162792325-485db519-f962-4a2e-b961-f1b0b32c8a5c.jpg",
+    "quote": "Un museo guarda preguntas, no solo respuestas.",
+    "createdAt": "2026-07-27T14:33:12.364Z"
+  },
+  {
+    "id": "db305f4a-d756-4ed3-ae9c-a91b281b1f14",
+    "filename": "1785162609175-40dad786-4b80-404d-b29b-c97a22980ac8.jpg",
+    "url": "/uploads/1785162609175-40dad786-4b80-404d-b29b-c97a22980ac8.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-07-27T14:30:09.216Z"
+  },
+  {
+    "id": "1ec69d6f-24ba-45b9-973e-652de1c8b8c6",
+    "filename": "1785162067893-e0b00e9a-6230-4b22-b7f1-4aa7d2e68b37.jpg",
+    "url": "/uploads/1785162067893-e0b00e9a-6230-4b22-b7f1-4aa7d2e68b37.jpg",
+    "quote": "El conocimiento crece cuando se comparte.",
+    "createdAt": "2026-07-27T14:21:07.919Z"
+  },
+  {
+    "id": "8934959a-8c69-4ecf-896e-b27d5db0dd3b",
+    "filename": "1785161968864-a3365f19-7d64-4af7-a273-880de9cfd8c8.jpg",
+    "url": "/uploads/1785161968864-a3365f19-7d64-4af7-a273-880de9cfd8c8.jpg",
+    "quote": "La memoria colectiva tambien se construye en imagenes.",
+    "createdAt": "2026-07-27T14:19:28.867Z"
+  },
+  {
+    "id": "bdd48837-b236-4b65-ab9a-0b25b2f244d8",
+    "filename": "1784760259608-d93e7569-9dda-4523-bdd6-cc40db432663.jpg",
+    "url": "/uploads/1784760259608-d93e7569-9dda-4523-bdd6-cc40db432663.jpg",
+    "quote": "Observar es el primer acto de creacion.",
+    "createdAt": "2026-07-22T22:44:19.609Z"
+  },
+  {
+    "id": "09d95a94-9fd0-4509-a1b1-fbeaebb1fcd3",
+    "filename": "1784760235634-e6ceee2d-5abc-4309-93f5-e88f0753770a.jpg",
+    "url": "/uploads/1784760235634-e6ceee2d-5abc-4309-93f5-e88f0753770a.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-07-22T22:43:55.635Z"
+  },
+  {
+    "id": "f190b9d0-89c6-41c2-a315-149e7d7f0ff6",
+    "filename": "1784757383399-142aa8f5-e1c7-436d-afd9-9e9a165aa753.jpg",
+    "url": "/uploads/1784757383399-142aa8f5-e1c7-436d-afd9-9e9a165aa753.jpg",
+    "quote": "El conocimiento crece cuando se comparte.",
+    "createdAt": "2026-07-22T21:56:23.402Z"
+  },
+  {
+    "id": "e0d3a428-5ffd-46f4-bd0c-ba1d16022055",
+    "filename": "1784733888939-82342a2a-fe23-429d-904d-628700f72d18.jpg",
+    "url": "/uploads/1784733888939-82342a2a-fe23-429d-904d-628700f72d18.jpg",
+    "quote": "Un museo guarda preguntas, no solo respuestas.",
+    "createdAt": "2026-07-22T15:24:48.962Z"
+  },
+  {
+    "id": "b598b4c0-004a-4b91-a288-cbe2305faa70",
+    "filename": "1784733786910-a60527b6-033a-43df-8b74-5be3612adc9e.jpg",
+    "url": "/uploads/1784733786910-a60527b6-033a-43df-8b74-5be3612adc9e.jpg",
+    "quote": "La historia cambia cuando cambia quien la cuenta.",
+    "createdAt": "2026-07-22T15:23:06.912Z"
+  },
+  {
+    "id": "07cb24d9-bcf3-4daf-b239-16e5e6dff5da",
+    "filename": "1784733476209-bdb40d45-ac97-456f-89f1-9774a54cdd8d.jpg",
+    "url": "/uploads/1784733476209-bdb40d45-ac97-456f-89f1-9774a54cdd8d.jpg",
+    "quote": "La belleza comienza cuando algo nos pregunta.",
+    "createdAt": "2026-07-22T15:17:56.212Z"
+  },
+  {
+    "id": "f6acde74-b20e-45db-9943-ad5f07c1d597",
+    "filename": "1784670869229-1e695241-ab98-4a40-8e22-b04f283504c5.jpg",
+    "url": "/uploads/1784670869229-1e695241-ab98-4a40-8e22-b04f283504c5.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-07-21T21:54:29.230Z"
+  },
+  {
+    "id": "f2235141-9aca-461b-a35e-2a597661a297",
+    "filename": "1784670846333-6e463354-7c52-443c-a6f9-504c0ad943ea.jpg",
+    "url": "/uploads/1784670846333-6e463354-7c52-443c-a6f9-504c0ad943ea.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-07-21T21:54:06.334Z"
+  },
+  {
+    "id": "942a8c6e-ef97-4bd2-855b-256993616528",
+    "filename": "1784669927701-f3a5bd73-7ddd-4c9d-89df-9f1462b93aae.jpg",
+    "url": "/uploads/1784669927701-f3a5bd73-7ddd-4c9d-89df-9f1462b93aae.jpg",
+    "quote": "La imaginacion es el laboratorio del futuro.",
+    "createdAt": "2026-07-21T21:38:47.808Z"
+  },
+  {
+    "id": "cd60acf8-5d8f-456e-b14d-ec5268fbe754",
+    "filename": "1784651351692-1ebcd502-eba4-4a4d-84b3-2124fbf78bc7.jpg",
+    "url": "/uploads/1784651351692-1ebcd502-eba4-4a4d-84b3-2124fbf78bc7.jpg",
+    "quote": "El arte no reproduce lo visible: lo hace visible.",
+    "createdAt": "2026-07-21T16:29:11.720Z"
+  },
+  {
+    "id": "39ecf08b-c881-4818-8f00-91b500e62371",
+    "filename": "1784651114648-8e6adfb9-d773-4953-baf5-9b5212c9dbe0.jpg",
+    "url": "/uploads/1784651114648-8e6adfb9-d773-4953-baf5-9b5212c9dbe0.jpg",
+    "quote": "Un museo guarda preguntas, no solo respuestas.",
+    "createdAt": "2026-07-21T16:25:14.665Z"
+  },
+  {
+    "id": "2313e8a2-c644-4e7e-9a41-08e2edb000c0",
+    "filename": "1784651060196-f5ab7243-0234-457f-a896-713d978d11a2.jpg",
+    "url": "/uploads/1784651060196-f5ab7243-0234-457f-a896-713d978d11a2.jpg",
+    "quote": "El conocimiento crece cuando se comparte.",
+    "createdAt": "2026-07-21T16:24:20.226Z"
+  },
+  {
+    "id": "5c3ddb55-53e7-4fd7-994b-d71d2ba7a322",
+    "filename": "1784649441785-4145f8e8-02ff-4ea6-b2e0-62e8dabf2dce.jpg",
+    "url": "/uploads/1784649441785-4145f8e8-02ff-4ea6-b2e0-62e8dabf2dce.jpg",
+    "quote": "El pasado conversa con quien sabe mirar.",
+    "createdAt": "2026-07-21T15:57:21.805Z"
+  },
+  {
+    "id": "13e98b98-b1c7-4aee-ba6d-f0bc6f02ae73",
+    "filename": "1784649296913-eb486510-d59d-432d-a558-0fa3e8f4c7cb.jpg",
+    "url": "/uploads/1784649296913-eb486510-d59d-432d-a558-0fa3e8f4c7cb.jpg",
+    "quote": "La imaginacion es el laboratorio del futuro.",
+    "createdAt": "2026-07-21T15:54:56.939Z"
+  },
+  {
+    "id": "c52eafac-2e9c-4394-bcb6-714e68d96bc6",
+    "filename": "1784649068737-42b7d396-d8c7-4502-9499-59299a26c80c.jpg",
+    "url": "/uploads/1784649068737-42b7d396-d8c7-4502-9499-59299a26c80c.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-07-21T15:51:08.769Z"
+  },
+  {
+    "id": "2a18ead2-23eb-4802-a52f-0d4f83a84fa6",
+    "filename": "1784648922886-443c709b-c48f-4587-9e8e-af76b4c45d61.jpg",
+    "url": "/uploads/1784648922886-443c709b-c48f-4587-9e8e-af76b4c45d61.jpg",
+    "quote": "El futuro empieza como una idea improbable.",
+    "createdAt": "2026-07-21T15:48:42.925Z"
+  },
+  {
+    "id": "67fe0782-b915-4e82-a21e-fc14d670a655",
+    "filename": "1784648888060-3d689fc4-1742-4f6f-a4cb-1d8f7dfff65d.jpg",
+    "url": "/uploads/1784648888060-3d689fc4-1742-4f6f-a4cb-1d8f7dfff65d.jpg",
+    "quote": "La curiosidad enciende la inteligencia.",
+    "createdAt": "2026-07-21T15:48:08.097Z"
+  },
+  {
+    "id": "4251f686-5482-4db7-ba85-f3d96544c939",
+    "filename": "1784646245265-36422f68-4d87-459c-982e-3f29b714ebf6.jpg",
+    "url": "/uploads/1784646245265-36422f68-4d87-459c-982e-3f29b714ebf6.jpg",
+    "quote": "El conocimiento crece cuando se comparte.",
+    "createdAt": "2026-07-21T15:04:05.282Z"
+  },
+  {
+    "id": "4a6eeb24-42b5-4aa2-9cb7-969e7c635795",
+    "filename": "1784646220884-0a427f4f-2ada-429a-96ef-a9f6b4bc40c4.jpg",
+    "url": "/uploads/1784646220884-0a427f4f-2ada-429a-96ef-a9f6b4bc40c4.jpg",
+    "quote": "La historia cambia cuando cambia quien la cuenta.",
+    "createdAt": "2026-07-21T15:03:40.909Z"
+  },
+  {
+    "id": "e18635fd-12a6-40d1-a26c-e855de73513f",
+    "filename": "1784646080690-6119fede-fcd1-4f85-9769-8ed0ae3bbe97.jpg",
+    "url": "/uploads/1784646080690-6119fede-fcd1-4f85-9769-8ed0ae3bbe97.jpg",
+    "quote": "La historia cambia cuando cambia quien la cuenta.",
+    "createdAt": "2026-07-21T15:01:20.718Z"
+  },
+  {
+    "id": "5efc02fb-c7fd-41fc-9751-0a29f9b1646a",
+    "filename": "1784645739880-6c219ce0-5e4c-4a99-945c-f62a810b3f92.jpg",
+    "url": "/uploads/1784645739880-6c219ce0-5e4c-4a99-945c-f62a810b3f92.jpg",
+    "quote": "Toda obra es una ventana hacia otra mirada.",
+    "createdAt": "2026-07-21T14:55:39.915Z"
+  },
+  {
+    "id": "0f4c5f38-4415-4bf9-9f71-e27a9c21730b",
+    "filename": "1783388426784-f3131584-3a3f-41ae-b808-bf3d8c5c354a.jpg",
+    "url": "/uploads/1783388426784-f3131584-3a3f-41ae-b808-bf3d8c5c354a.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-07-07T01:40:26.786Z"
   },
   {
     "id": "b1f39566-386a-461b-a5ef-d2eb78042323",

@@ -31,6 +31,30 @@ let featuredPositionIndex = 0;
 
 const GRID_SIZE = 45;
 
+const applauseSound = new Audio(
+  "/sounds/applause.mp3"
+);
+
+applauseSound.volume = 0.6;
+
+let audioUnlocked = false;
+
+function unlockAudio() {
+  if (audioUnlocked) return;
+
+  applauseSound.play()
+    .then(() => {
+      applauseSound.pause();
+      applauseSound.currentTime = 0;
+      audioUnlocked = true;
+      console.log("Audio desbloqueado");
+    })
+    .catch(err => console.error(err));
+}
+
+document.addEventListener("click", unlockAudio, { once: true });
+document.addEventListener("touchstart", unlockAudio, { once: true });
+
 async function loadSettings() {
   try {
     const response = await fetch("/api/settings");
@@ -564,6 +588,18 @@ function showSpotlight(photo) {
   spotlight.classList.add(
     "is-active"
   );
+  celebrateNewPhoto();
+  //applauseSound.currentTime = 0;
+  //applauseSound.play().catch(() => {});
+  applauseSound.currentTime = 0;
+
+  applauseSound.play()
+    .then(() => console.log("Aplauso reproducido"))
+    .catch(err => console.error("Error:", err));
+  applauseSound.play()
+  .then(() => console.log("Audio reproduciéndose"))
+  .catch(err => console.error("Error al reproducir:", err));
+
   mosaic.classList.add(
     "is-hidden"
   );
@@ -580,6 +616,31 @@ function showSpotlight(photo) {
     }, 5000);
 }
 
+function celebrateNewPhoto() {
+  const colors = [
+    "#005BAA", // Azul SENATI
+    "#E30613", // Rojo SENATI
+    "#FFFFFF"  // Blanco
+  ];
+  confetti({
+    particleCount: 80,
+    angle: 60,
+    spread: 70,
+    origin: {
+      x: 0
+    },
+    colors
+  });
+  confetti({
+    particleCount: 80,
+    angle: 120,
+    spread: 70,
+    origin: {
+      x: 1
+    },
+    colors
+  });
+}
 loadSettings();
 loadFeaturedPhotos();
 startRandomRotation();

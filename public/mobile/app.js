@@ -9,7 +9,8 @@ const sendButton = document.querySelector("#sendButton");
 const backButton = document.querySelector("#backButton");
 const newPhotoButton = document.querySelector("#newPhotoButton");
 const statusMessage = document.querySelector("#statusMessage");
-
+const frameImage = new Image();
+frameImage.src = "/assets/frame.png";
 const context = cropCanvas.getContext("2d");
 const state = {
   image: null,
@@ -85,21 +86,55 @@ function setStatus(message = "") {
 }
 
 function drawCrop() {
+
   if (!state.image) return;
 
-  const size = cropCanvas.width;
-  const imageRatio = state.image.width / state.image.height;
-  const baseWidth = imageRatio > 1 ? size * imageRatio : size;
-  const baseHeight = imageRatio > 1 ? size : size / imageRatio;
-  const width = baseWidth * state.zoom;
-  const height = baseHeight * state.zoom;
-  const x = (size - width) / 2 + state.offsetX;
-  const y = (size - height) / 2 + state.offsetY;
+  const canvasWidth = cropCanvas.width;
+  const canvasHeight = cropCanvas.height;
 
-  context.clearRect(0, 0, size, size);
+  const scale = Math.max(
+    canvasWidth / state.image.width,
+    canvasHeight / state.image.height
+  ) * state.zoom;
+
+  const width =
+    state.image.width * scale;
+
+  const height =
+    state.image.height * scale;
+
+  const x =
+    (canvasWidth - width) / 2 +
+    state.offsetX;
+
+  const y =
+    (canvasHeight - height) / 2 +
+    state.offsetY;
+
+  context.clearRect(
+    0,
+    0,
+    canvasWidth,
+    canvasHeight
+  );
+
   context.fillStyle = "#191919";
-  context.fillRect(0, 0, size, size);
-  context.drawImage(state.image, x, y, width, height);
+
+  context.fillRect(
+    0,
+    0,
+    canvasWidth,
+    canvasHeight
+  );
+
+  context.drawImage(
+    state.image,
+    x,
+    y,
+    width,
+    height
+  );
+
 }
 
 function loadImage(file) {
@@ -170,25 +205,36 @@ function downloadSenatiPhoto() {
   const outputCanvas =
     document.createElement("canvas");
 
-  outputCanvas.width = 1080;
-  outputCanvas.height = 1080;
+  outputCanvas.width = 4525;
+  outputCanvas.height = 6583;
 
   const ctx =
     outputCanvas.getContext("2d");
 
   ctx.fillStyle = "#ffffff";
-  ctx.fillRect(0, 0, 1080, 1080);
+  ctx.fillRect(
+    0,
+    0,
+    outputCanvas.width,
+    outputCanvas.height
+  );
 
   ctx.drawImage(
     cropCanvas,
-    0,
-    0,
-    1080,
-    1080
+    293,   // x
+    1106,  // y
+    3938,  // ancho real de la ventana
+    4687   // alto real de la ventana
   );
-
+  ctx.drawImage(
+    frameImage,
+    0,
+    0,
+    outputCanvas.width,
+    outputCanvas.height
+  );
   // Marco institucional
-  ctx.lineWidth = 8;
+  /*ctx.lineWidth = 8;
   ctx.strokeStyle = "#005BAA";
   ctx.strokeRect(20, 20, 1040, 1040);
 
@@ -232,7 +278,7 @@ function downloadSenatiPhoto() {
     "#SENATI60",
     540,
     1070
-  );
+  );*/
   const link =
     document.createElement("a");
 

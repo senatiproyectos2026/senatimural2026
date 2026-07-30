@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap');
 :root {
   color-scheme: dark;
 
@@ -26,22 +27,8 @@ body {
 
 body {
   margin: 0;
-  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-  background:
-  radial-gradient(circle at top left,
-  rgba(0,91,170,.45),
-  transparent 35%),
-
-  radial-gradient(circle at bottom right,
-  rgba(227,6,19,.20),
-  transparent 30%),
-
-  linear-gradient(
-    135deg,
-    #031326,
-    #072b52,
-    #0a3d73
-  );
+  font-family: 'Poppins', ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: #002c9e;
   color: var(--ink);
 }
 
@@ -116,6 +103,7 @@ p {
   color: var(--muted);
   font-size: 1rem;
   line-height: 1.55;
+  text-align: center;
 }
 
 input[type="file"] {
@@ -133,7 +121,6 @@ input[type="file"] {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  border: 0;
   border-radius: 8px;
   cursor: pointer;
   font-weight: 800;
@@ -142,18 +129,47 @@ input[type="file"] {
 }
 
 .primary-action {
-  background: linear-gradient(
-    135deg,
-    #005baa,
-    #0b74d1
-  );
-
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      ellipse at top,
+      rgba(255, 255, 255, 0.6),
+      transparent 55%
+    ),
+    #002c9e;
   color: #fff;
-
-  box-shadow:
-    0 12px 30px rgba(0,91,170,.35);
-
+  border: 3px solid #a8c4f0;
+  border-radius: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 0 0 1px #002c9e;
   transition: .25s;
+}
+
+.primary-action::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 30px;
+  height: 30px;
+  background: linear-gradient(
+    -45deg,
+    transparent 0%,
+    transparent 38%,
+    #1ee5e0 38%,
+    #1ee5e0 44%,
+    transparent 44%,
+    transparent 52%,
+    #1ee5e0 52%,
+    #1ee5e0 58%,
+    transparent 58%,
+    transparent 100%
+  );
+  pointer-events: none;
 }
 
 .primary-action:hover {
@@ -166,14 +182,26 @@ input[type="file"] {
 }
 
 .secondary-action {
-  background: transparent;
-  color: var(--ink);
-  border: 1px solid var(--line);
+  background:
+    linear-gradient(
+      to bottom,
+      #ffffff 0%,
+      #dde3ea 45%,
+      #b7c0cc 50%,
+      #e9edf2 100%
+    );
+  color: #002c9e;
+  border: 1px solid #a3adba;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
 }
 
 .cropper {
   width: 100%;
-  aspect-ratio: 1;
+  aspect-ratio: 900 / 1310;
   overflow: hidden;
   margin-top: 22px;
   background: #191919;
@@ -240,4 +268,143 @@ input[type="range"] {
   color: #005baa;
   border: 2px solid #005baa;
   font-weight: 800;
+}
+
+.hero-logo {
+  display: block;
+  margin: 0 auto 20px;
+  width: 100%;
+  max-width: 264px;
+  height: auto;
+}
+
+.hero-title {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.6rem, 8vw, 2.4rem);
+  color: #002c9e;
+  line-height: 1.25;
+  letter-spacing: 0.5px;
+  margin: 0 0 20px;
+}
+
+#cropStep h1 {
+  text-align: center;
+  text-transform: uppercase;
+  color: #002c9e;
+}
+
+#cropStep p {
+  text-align: center;
+  font-weight: 700;
+}
+
+/* Versión compacta solo para el paso de recorte */
+#cropStep .hero-logo {
+  max-width: 140px;
+  margin: 0 auto 8px;
+}
+
+#cropStep h1 {
+  font-size: 1.4rem;
+  line-height: 1.15;
+  margin-bottom: 6px;
+}
+
+#cropStep p {
+  font-size: 0.85rem;
+  margin: 6px 0 12px;
+}
+
+#cropStep .cropper {
+  width: auto;
+  max-width: 100%;
+  height: min(36vh, 340px);
+  margin: 10px auto;
+}
+
+#cropStep .controls {
+  margin: 10px 0;
+}
+
+#cropStep .controls label {
+  gap: 4px;
+  font-size: 0.8rem;
+}
+
+#cropStep input[type="range"] {
+  height: 20px;
+}
+
+#cropStep .title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 6px;
+}
+
+#cropStep .circuit {
+  width: 90px;
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+#cropStep .circuit-left {
+  margin-left: -28px;
+}
+
+#cropStep .circuit-right {
+  margin-right: -28px;
+}
+
+#successStep h1 {
+  color: #002c9e;
+  text-transform: uppercase;
+  font-size: 1.7rem;
+}
+
+#successStep .icon-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 22px;
+}
+
+#successStep .circuit {
+  width: 100px;
+  height: auto;
+  flex-shrink: 0;
+  opacity: 0.9;
+}
+
+#successStep .circuit-left {
+  margin-left: -28px;
+}
+
+#successStep .circuit-right {
+  margin-right: -28px;
+}
+
+#captureStep.is-active {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+#captureStep .circuit-bottom {
+  display: block;
+  width: calc(100% + 56px);
+  max-width: none;
+  margin-left: -28px;
+  margin-right: -28px;
+  margin-bottom: -28px;
+  margin-top: auto;
+}
+
+#statusMessage:empty {
+  margin: 0;
+  min-height: 0;
 }

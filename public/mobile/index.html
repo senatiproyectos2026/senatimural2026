@@ -9,13 +9,16 @@
   <body>
     <main class="mobile-shell">
       <section class="panel" aria-live="polite">
-        <div class="brand">
-          <span class="brand-mark"></span>
-          <span>SENATI | 60 AÑOS</span>
-        </div>
+        
 
         <div id="captureStep" class="step is-active">
-          <h1>¡Celebremos juntos los 60 años de SENATI!</h1>
+          <img src="/assets/logo.png" alt="SENATI 60 Años" class="hero-logo">
+
+          <h1 class="hero-title">
+            ¡CELEBREMOS JUNTOS<br>
+            LOS 60 AÑOS DE<br>
+            SENATI!
+          </h1>
 
           <p>
           Tómate una foto, compártela en el mural interactivo
@@ -27,16 +30,22 @@
             Abrir camara o galeria
           </label>
           <input id="photoInput" type="file" accept="image/*" capture="environment">
+          <img src="/assets/circuitos_abajo.png" alt="" class="circuit-bottom">
         </div>
 
         <div id="cropStep" class="step">
-          <h1>Recorta tu foto</h1>
+          <img src="/assets/logo.png" alt="SENATI 60 Años" class="hero-logo">
+          <div class="title-row">
+            <img src="/assets/circuitos_izquierda.png" alt="" class="circuit circuit-left">
+            <h1>RECORTA<br>TU FOTO</h1>
+            <img src="/assets/circuitos_derecha.png" alt="" class="circuit circuit-right">
+          </div>
           <p>
             Ajusta tu foto. Al continuar, se descargará una copia conmemorativa y también se enviará al mural.
           </p>
 
           <div class="cropper">
-            <canvas id="cropCanvas" width="900" height="900"></canvas>
+            <canvas id="cropCanvas" width="900" height="1071"></canvas>
           </div>
 
           <div class="controls">
@@ -53,14 +62,22 @@
         </div>
 
         <div id="successStep" class="step success">
-          <div class="success-icon">✓</div>
+          <img src="/assets/logo.png" alt="SENATI 60 Años" class="hero-logo">
+
+          <div class="icon-row">
+            <img src="/assets/circuitos_izquierda.png" alt="" class="circuit circuit-left">
+            <div class="success-icon">✓</div>
+            <img src="/assets/circuitos_derecha.png" alt="" class="circuit circuit-right">
+          </div>
+
           <h1>¡Ya eres parte de los 60 años de SENATI!</h1>
           <p>
-          Tu fotografía ahora forma parte del mural
-          conmemorativo que celebra seis décadas
-          transformando vidas a través de la educación técnica.
+            Ahora formas parte del mural </br>
+            conmemorativo que celebra seis </br>
+            décadas transformando </br>
+            la sociedad y la industria
           </p>
-          <button id="newPhotoButton" class="secondary-action" type="button">Agregar otra foto</button>
+          <button id="newPhotoButton" class="primary-action" type="button">Agregar otra foto</button>
         </div>
 
         <p id="statusMessage" class="status" role="status"></p>

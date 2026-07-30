@@ -83,7 +83,8 @@ app.use("/uploads", express.static(path.join(__dirname, "..", "public", "uploads
 app.use("/mobile", express.static(path.join(__dirname, "..", "public", "mobile")));
 app.use("/mural", express.static(path.join(__dirname, "..", "public", "mural")));
 app.use("/admin", express.static(path.join(__dirname, "..", "public", "admin")));
-
+app.use("/sounds", express.static(path.join(__dirname, "..", "public", "sounds")));
+app.use("/assets", express.static(path.join(__dirname, "..", "public", "assets")));
 app.get("/", (_req, res) => {
   res.redirect("/mural");
 });
