@@ -1,5 +1,110 @@
 [
   {
+    "id": "288c7fea-c5e5-424f-85a3-728ddcd24e21",
+    "filename": "1785607355663-4a3ef9d1-c74b-4c38-a667-b9f23ba62bea.jpg",
+    "url": "/uploads/1785607355663-4a3ef9d1-c74b-4c38-a667-b9f23ba62bea.jpg",
+    "quote": "El compromiso hace la diferencia.",
+    "createdAt": "2026-08-01T18:02:35.665Z"
+  },
+  {
+    "id": "6ee00c02-46d0-4765-a430-f4b4090fd2c4",
+    "filename": "1785607189093-9d53561d-dfed-406f-9efc-e965fdf0dbd7.jpg",
+    "url": "/uploads/1785607189093-9d53561d-dfed-406f-9efc-e965fdf0dbd7.jpg",
+    "quote": "Cada logro comienza con un aprendizaje.",
+    "createdAt": "2026-08-01T17:59:49.129Z"
+  },
+  {
+    "id": "5d945108-19c8-4ff4-9fc6-9d22d45973e8",
+    "filename": "1785606563340-6627aef4-458f-42ab-af37-e4f70e8c8edb.jpg",
+    "url": "/uploads/1785606563340-6627aef4-458f-42ab-af37-e4f70e8c8edb.jpg",
+    "quote": "Cada generación deja su huella.",
+    "createdAt": "2026-08-01T17:49:23.348Z"
+  },
+  {
+    "id": "92dd70b6-9d94-452b-9c2b-0cabcb729c9a",
+    "filename": "1785606552132-f9c7d4b9-bd0a-43f1-ae8a-2d2f9ef015c8.jpg",
+    "url": "/uploads/1785606552132-f9c7d4b9-bd0a-43f1-ae8a-2d2f9ef015c8.jpg",
+    "quote": "El futuro pertenece a quienes se preparan.",
+    "createdAt": "2026-08-01T17:49:12.134Z"
+  },
+  {
+    "id": "a9d8b5fe-0d22-47f7-ac90-fbf6d11e89aa",
+    "filename": "1785606258703-80c85e2f-f255-4a7b-9b03-7992ebc27c70.jpg",
+    "url": "/uploads/1785606258703-80c85e2f-f255-4a7b-9b03-7992ebc27c70.jpg",
+    "quote": "El compromiso hace la diferencia.",
+    "createdAt": "2026-08-01T17:44:18.736Z"
+  },
+  {
+    "id": "27e7afa3-17a4-44a7-beb2-3634080e0b26",
+    "filename": "1785606212609-8ea1f300-41ac-412e-be5e-37565e41b5e1.jpg",
+    "url": "/uploads/1785606212609-8ea1f300-41ac-412e-be5e-37565e41b5e1.jpg",
+    "quote": "Aprender, crear e innovar.",
+    "createdAt": "2026-08-01T17:43:32.675Z"
+  },
+  {
+    "id": "a899558b-f418-44eb-8ad0-4834da80ca45",
+    "filename": "1785605546751-aadaee35-738d-4eb6-a9ab-ad543367dda6.jpg",
+    "url": "/uploads/1785605546751-aadaee35-738d-4eb6-a9ab-ad543367dda6.jpg",
+    "quote": "La memoria colectiva tambien se construye en imagenes.",
+    "createdAt": "2026-08-01T17:32:26.792Z"
+  },
+  {
+    "id": "cf41cb68-1d28-44d5-acc1-b5fd32348e2c",
+    "filename": "1785605401559-8c6c8753-3786-4fd6-9700-c476138060c9.jpg",
+    "url": "/uploads/1785605401559-8c6c8753-3786-4fd6-9700-c476138060c9.jpg",
+    "quote": "Un museo guarda preguntas, no solo respuestas.",
+    "createdAt": "2026-08-01T17:30:01.560Z"
+  },
+  {
+    "id": "6f898cb1-f4f2-41a7-b455-1091c7716413",
+    "filename": "1785605355063-93c8e2a0-18ec-40d9-9855-cc732e98d3bc.jpg",
+    "url": "/uploads/1785605355063-93c8e2a0-18ec-40d9-9855-cc732e98d3bc.jpg",
+    "quote": "Toda obra es una ventana hacia otra mirada.",
+    "createdAt": "2026-08-01T17:29:15.066Z"
+  },
+  {
+    "id": "53512bf7-60c0-426d-b59a-a04ad02f5570",
+    "filename": "1785605084868-3058d136-98dc-4e0c-9cde-91b42e28c202.jpg",
+    "url": "/uploads/1785605084868-3058d136-98dc-4e0c-9cde-91b42e28c202.jpg",
+    "quote": "La ciencia es la poesia de la realidad.",
+    "createdAt": "2026-08-01T17:24:44.871Z"
+  },
+  {
+    "id": "b611e763-a261-4b22-a3d8-c4351c59dc58",
+    "filename": "1785604481868-036f684d-fe21-4e45-ae15-81c218fc0f37.jpg",
+    "url": "/uploads/1785604481868-036f684d-fe21-4e45-ae15-81c218fc0f37.jpg",
+    "quote": "Todo gran descubrimiento nace de una duda.",
+    "createdAt": "2026-08-01T17:14:41.871Z"
+  },
+  {
+    "id": "277e3668-b518-4373-bb7d-2554139286c9",
+    "filename": "1785604304696-43e0a1dd-a410-446d-af70-c7b8d44e52d8.jpg",
+    "url": "/uploads/1785604304696-43e0a1dd-a410-446d-af70-c7b8d44e52d8.jpg",
+    "quote": "La memoria colectiva tambien se construye en imagenes.",
+    "createdAt": "2026-08-01T17:11:44.698Z"
+  },
+  {
+    "id": "1b420ccf-4526-4c97-8780-0d4586eef253",
+    "filename": "1785604285819-cb605f00-b40b-4db6-9314-75230d961918.jpg",
+    "url": "/uploads/1785604285819-cb605f00-b40b-4db6-9314-75230d961918.jpg",
+    "quote": "La historia cambia cuando cambia quien la cuenta.",
+    "createdAt": "2026-08-01T17:11:25.822Z"
+  },
+  {
+    "id": "9453cc37-27dd-4f6c-9872-841092c64654",
+    "filename": "1785599399950-3dcfa5cf-7c1f-457b-a3c9-24fa88906b6f.jpg",
+    "url": "/uploads/1785599399950-3dcfa5cf-7c1f-457b-a3c9-24fa88906b6f.jpg",
+    "quote": "Un museo guarda preguntas, no solo respuestas.",
+    "createdAt": "2026-08-01T15:50:00.011Z"
+  },
+  {
+    "id": "f18ecac7-91b3-4ae6-896c-8af8e6884955",
+    "filename": "1785599316390-7cafba1c-1707-4fe0-9b20-a8cdcfc9f6c1.jpg",
+    "url": "/uploads/1785599316390-7cafba1c-1707-4fe0-9b20-a8cdcfc9f6c1.jpg",
+    "quote": "El arte no reproduce lo visible: lo hace visible.",
+    "createdAt": "2026-08-01T15:48:36.394Z"
+  },
+  {
     "id": "d7f54c28-8080-4327-bfcd-0e2be91a2448",
     "filename": "1785210542591-a69d8453-e975-4228-84d3-a297d5ec6965.jpg",
     "url": "/uploads/1785210542591-a69d8453-e975-4228-84d3-a297d5ec6965.jpg",

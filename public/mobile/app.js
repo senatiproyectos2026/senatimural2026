@@ -198,6 +198,26 @@ async function canvasToBlob() {
     cropCanvas.toBlob(resolve, "image/jpeg", 0.88);
   });
 }
+function wrapText(ctx, text, maxWidth) {
+  const words = text.split(" ");
+  const lines = [];
+  let currentLine = words[0];
+
+  for (let i = 1; i < words.length; i++) {
+    const testLine = currentLine + " " + words[i];
+    const testWidth = ctx.measureText(testLine).width;
+
+    if (testWidth > maxWidth) {
+      lines.push(currentLine);
+      currentLine = words[i];
+    } else {
+      currentLine = testLine;
+    }
+  }
+
+  lines.push(currentLine);
+  return lines;
+}
 
 function downloadSenatiPhoto() {
   if (!state.image) return;
@@ -221,10 +241,10 @@ function downloadSenatiPhoto() {
 
   ctx.drawImage(
     cropCanvas,
-    293,   // x
-    1106,  // y
-    3938,  // ancho real de la ventana
-    4687   // alto real de la ventana
+    293,
+    1106,
+    3938,
+    4687
   );
   ctx.drawImage(
     frameImage,
@@ -233,52 +253,47 @@ function downloadSenatiPhoto() {
     outputCanvas.width,
     outputCanvas.height
   );
-  // Marco institucional
-  /*ctx.lineWidth = 8;
-  ctx.strokeStyle = "#005BAA";
-  ctx.strokeRect(20, 20, 1040, 1040);
 
-  // Barra superior
-  ctx.fillStyle = "#005BAA";
-  ctx.fillRect(0, 0, 1080, 100);
+  // Contenedor de la frase institucional
+  const boxWidth = 3938;
+  const boxHeight = 380;
+  const boxX = (outputCanvas.width - boxWidth) / 2;
+  const boxY = 5998;
+  const radius = 30;
 
-  ctx.fillStyle = "#FFFFFF";
-  ctx.font = "bold 46px Arial";
-  ctx.textAlign = "center";
+  ctx.fillStyle = "#002c9e";
+  ctx.beginPath();
+  ctx.moveTo(boxX + radius, boxY);
+  ctx.arcTo(boxX + boxWidth, boxY, boxX + boxWidth, boxY + boxHeight, radius);
+  ctx.arcTo(boxX + boxWidth, boxY + boxHeight, boxX, boxY + boxHeight, radius);
+  ctx.arcTo(boxX, boxY + boxHeight, boxX, boxY, radius);
+  ctx.arcTo(boxX, boxY, boxX + boxWidth, boxY, radius);
+  ctx.closePath();
+  ctx.fill();
 
-  ctx.fillText(
-    "SENATI | 60 AÑOS",
-    540,
-    64
-  );
-
-  // Barra inferior
-  ctx.fillStyle = "#005BAA";
-  ctx.fillRect(0, 980, 1080, 100);
-
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 32px Arial";
-
-  const quote =
-  senatiQuotes[
-    Math.floor(
-      Math.random() * senatiQuotes.length
-    )
+  // Frase institucional (fija)
+  const lines = [
+    "60 AÑOS FORMANDO LÍDERES PARA",
+    "LA SOCIEDAD Y LA INDUSTRIA"
   ];
 
-  ctx.fillText(
-    quote,
-    540,
-    1040
-  );
+  ctx.fillStyle = "#ffffff";
+  ctx.font = "bold 150px 'Poppins', sans-serif";
+  ctx.textAlign = "center";
+  ctx.textBaseline = "middle";
 
-  ctx.font = "bold 28px Arial";
+  const lineHeight = 170;
+  const startY =
+    boxY + boxHeight / 2 - ((lines.length - 1) * lineHeight) / 2;
 
-  ctx.fillText(
-    "#SENATI60",
-    540,
-    1070
-  );*/
+  lines.forEach((line, index) => {
+    ctx.fillText(
+      line,
+      outputCanvas.width / 2,
+      startY + index * lineHeight
+    );
+  });
+
   const link =
     document.createElement("a");
 

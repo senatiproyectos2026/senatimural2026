@@ -201,7 +201,7 @@ input[type="file"] {
 
 .cropper {
   width: 100%;
-  aspect-ratio: 900 / 1310;
+  aspect-ratio: 900 / 1071;
   overflow: hidden;
   margin-top: 22px;
   background: #191919;
@@ -248,11 +248,19 @@ input[type="range"] {
   display: inline-grid;
   margin-bottom: 22px;
   place-items: center;
-  background: #005baa;
+  background:
+    radial-gradient(
+      ellipse at bottom,
+      rgba(255, 255, 255, 0.6),
+      transparent 55%
+    ),
+    #002c9e;
   color: #fff;
+  border: 3px solid #a8c4f0;
   border-radius: 50%;
   font-size: 2.6rem;
   font-weight: 900;
+  box-shadow: 0 0 0 1px #002c9e;
 }
 
 .status {
